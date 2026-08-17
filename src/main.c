@@ -1,18 +1,45 @@
 #include <stdio.h>
-#include <sys/sysinfo.h>
+#include <stdlib.h>
+#include <string.h>
+
+#include "../include/input.h"
+#include "../include/diagnostics.h"
 
 int main()
 {
-    struct sysinfo info;
+    char *line;
 
-    if(sysinfo(&info)==0)
+    printf("===== Linux System Diagnostics Toolkit =====\n");
+
+    while(1)
     {
-        printf("===== Linux System Diagnostics Toolkit =====\n");
-        printf("System Uptime : %ld seconds\n", info.uptime);
-        printf("Total RAM     : %lu MB\n",
-               info.totalram/(1024*1024));
-        printf("Free RAM      : %lu MB\n",
-               info.freeram/(1024*1024));
+        printf("\n1. Show System Uptime\n");
+        printf("2. Show RAM Information\n");
+        printf("3. Exit\n");
+        printf("Enter your choice: ");
+
+        line = read_line();
+
+        if(strcmp(line, "1") == 0)
+        {
+            showUptime();
+        }
+        else if(strcmp(line, "2") == 0)
+        {
+            showMemory();
+        }
+        else if(strcmp(line, "3") == 0)
+        {
+            free(line);
+            printf("Exiting Toolkit...\n");
+            break;
+        }
+        else
+        {
+            printf("Invalid Choice\n");
+        }
+
+        free(line);
     }
 
     return 0;

@@ -10,7 +10,7 @@ TARGET = bin/diagnostics
 
 all: $(TARGET)
 
-$(TARGET): $(SRC)
+$(TARGET):
 	mkdir -p bin
 	$(CC) $(CFLAGS) $(SRC) -o $(TARGET)
 

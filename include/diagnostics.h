@@ -1,6 +1,7 @@
 #ifndef DIAGNOSTICS_H
 #define DIAGNOSTICS_H
 
-void displaySystemInfo();
+void showUptime();
+void showMemory();
 
 #endif
