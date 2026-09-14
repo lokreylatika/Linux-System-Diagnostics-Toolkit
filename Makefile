@@ -4,7 +4,8 @@ CFLAGS = -Wall -Wextra -g -Iinclude
 
 SRC = src/main.c \
       src/input.c \
-      src/diagnostics.c
+      src/diagnostics.c \
+      src/parser.c
 
 TARGET = bin/diagnostics
 
