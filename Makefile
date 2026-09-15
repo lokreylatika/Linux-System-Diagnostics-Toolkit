@@ -6,13 +6,14 @@ SRC = src/main.c \
       src/input.c \
       src/diagnostics.c \
       src/parser.c \
-      src/process.c
+      src/process.c \
+      src/builtin.c
 
 TARGET = bin/diagnostics
 
 all: $(TARGET)
 
-$(TARGET):
+$(TARGET): $(SRC)
 	mkdir -p bin
 	$(CC) $(CFLAGS) $(SRC) -o $(TARGET)
 

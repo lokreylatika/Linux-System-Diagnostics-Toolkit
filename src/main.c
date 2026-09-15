@@ -6,23 +6,7 @@
 #include "../include/parser.h"
 #include "../include/diagnostics.h"
 #include "../include/process.h"
-
-void showHelp()
-{
-    printf("\n===== Available Commands =====\n");
-    printf("uptime       - Show system uptime\n");
-    printf("memory       - Show memory information\n");
-    printf("free -h      - Show detailed RAM usage\n");
-    printf("df -h        - Show disk space usage\n");
-    printf("date         - Show current date and time\n");
-    printf("whoami       - Show current username\n");
-    printf("ls           - List files and folders\n");
-    printf("ps           - Show running processes\n");
-    printf("hostname     - Show system hostname\n");
-    printf("help         - Show this command list\n");
-    printf("exit         - Exit the toolkit\n");
-    printf("==============================\n\n");
-}
+#include "../include/builtin.h"
 
 int main()
 {
@@ -38,23 +22,27 @@ int main()
 
         line = read_line();
 
-        if(strcmp(line, "exit") == 0)
-        {
-            free(line);
+        if(line == NULL)
             break;
-        }
 
         tokens = parse_line(line);
 
         if(tokens[0] != NULL)
         {
-            if(strcmp(tokens[0], "help") == 0)
+            if(execute_builtin(tokens) == 0)
             {
-                showHelp();
-            }
-            else
-            {
-                execute(tokens);
+                if(strcmp(tokens[0],"uptime")==0)
+                {
+                    showUptime();
+                }
+                else if(strcmp(tokens[0],"memory")==0)
+                {
+                    showMemory();
+                }
+                else
+                {
+                    execute(tokens);
+                }
             }
         }
 
