@@ -7,11 +7,14 @@
 #include "../include/diagnostics.h"
 #include "../include/process.h"
 #include "../include/builtin.h"
+#include "../include/signals.h"
 
 int main()
 {
     char *line;
     char **tokens;
+
+    initialize_signals();
 
     printf("===== Linux System Diagnostics Toolkit =====\n");
     printf("Type 'help' to see available commands.\n");
