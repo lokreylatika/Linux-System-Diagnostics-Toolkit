@@ -9,6 +9,7 @@
 #include "../include/builtin.h"
 #include "../include/signals.h"
 #include "../include/pipes.h"
+#include "../include/redirect.h"
 
 static void tokenize(char *str, char **argv)
 {
@@ -75,17 +76,20 @@ int main()
         {
             if(execute_builtin(tokens) == 0)
             {
-                if(strcmp(tokens[0], "uptime") == 0)
-                {
-                    showUptime();
-                }
-                else if(strcmp(tokens[0], "memory") == 0)
-                {
-                    showMemory();
-                }
-                else
-                {
-                    execute(tokens);
+		if(execute_redirection(tokens) == 0)
+		{
+                    if(strcmp(tokens[0], "uptime") == 0)
+                    {
+                        showUptime();
+                    }
+                    else if(strcmp(tokens[0], "memory") == 0)
+                    {
+                        showMemory();
+                    }
+                    else
+                    {
+                        execute(tokens);
+                    }
                 }
             }
         }
