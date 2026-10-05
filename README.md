@@ -54,7 +54,6 @@ Added support for commands such as:
 ls
 date
 whoami
-uptime
 free
 df
 Integrated process management with the command parser.
@@ -78,13 +77,49 @@ memory
 Improved command handling by distinguishing between built-in commands, diagnostic functions, and external Linux commands.
 Continued developing the toolkit using a modular C programming structure.
 
+✅ Week 6 – Signals and Process Control
+Implemented signal handling using the signal() system call.
+Added support for handling SIGINT (Ctrl+C).
+Prevented accidental termination of the toolkit when Ctrl+C is pressed.
+Displayed user-friendly messages during signal handling.
+Added support for SIGCHLD handling for child process management.
+Improved process cleanup and application stability.
+Integrated signal initialization into the main program flow.
+Enhanced reliability and robustness of the toolkit.
+
+✅ Week 7 – Pipes and Inter-Process Communication (IPC)
+Implemented anonymous pipes using pipe().
+Created multiple child processes using fork().
+Used dup2() to redirect standard input and output.
+Enabled communication between processes through pipelines.
+Added support for piped Linux commands such as:
+ls | wc
+free -h | grep Mem
+ps -ef | grep bash
+Integrated pipe execution with the command parser.
+Improved Linux command processing through IPC mechanisms.
+Enhanced toolkit functionality using operating system communication concepts.
+
+✅ Week 8 – Memory Management, Debugging and Valgrind
+Installed and configured Valgrind and GDB.
+Compiled the project with debugging symbols (-g).
+Performed memory leak analysis using Valgrind.
+Verified memory allocation and deallocation throughout the toolkit.
+Confirmed that no memory leaks or memory access errors were present.
+Used GDB to:
+Set breakpoints
+Step through code execution
+Inspect function calls using backtrace
+Improved error handling and defensive programming practices.
+Enhanced the reliability and stability of the Linux System Diagnostics Toolkit.
+
 🎯 Expected Outcome
 Provide real-time system health and performance information.
 Generate diagnostic reports for CPU, memory, disk, and network usage.
 Enable faster detection and troubleshooting of system issues.
 Improve understanding of Linux system administration and monitoring concepts.
 Offer a user-friendly command-line interface for accessing diagnostic data.
-Demonstrate practical use of Linux system calls and process management concepts.
+Demonstrate practical use of Linux system calls, process management, signal handling, and inter-process communication concepts.
 Build a scalable toolkit that can be extended with advanced monitoring and reporting features in future milestones.
 
 🚀 Future Enhancements
@@ -97,3 +132,6 @@ Performance Report Generation
 Real-Time Monitoring Dashboard
 Export Diagnostic Reports to Files
 Automated Health Checks and Alerts
+System Resource Visualization
+Scheduled Diagnostic Reporting
+Alert and Notification System
