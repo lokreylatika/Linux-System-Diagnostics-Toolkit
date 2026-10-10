@@ -175,6 +175,22 @@ Integrated redirection support with the parser and command execution modules.
 Improved report generation and data logging capabilities.
 Enhanced the toolkit by allowing diagnostic outputs to be stored and reviewed later.
 
+✅ Week 10 – POSIX Thread Support
+- Implemented multithreading using POSIX threads (`pthread`).
+- Added a separate thread module for background monitoring.
+- Updated the Makefile to compile with `-pthread`.
+
+✅ Week 11 – Job Control
+- Added job tracking and process-control modules.
+- Introduced `jobs`, `bg`, and `fg` commands.
+- Explored foreground and background process management.
+
+✅ Week 12 – Deadlock Demonstration and Prevention
+- Created programs to demonstrate deadlock using POSIX threads and mutexes.
+- Implemented a prevention example using consistent mutex-lock ordering.
+- Added separate Makefile targets for both programs.
+
+
 🎯 Expected Outcome
 
 Provide real-time system health and performance information.
